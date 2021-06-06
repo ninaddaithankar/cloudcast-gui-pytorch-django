@@ -24,4 +24,4 @@ def upload_file(request):
 
     else:
         form = UploadFileForm()
-    return render(request, 'frontend/index.html', {'form': form})
+    return render(request, 'frontend/index.html', {'form': form, 'values': [0, 1, 2, 3]})

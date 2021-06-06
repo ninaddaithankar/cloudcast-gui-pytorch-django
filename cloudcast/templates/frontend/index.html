@@ -1,11 +1,83 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %} {% load static %}
+<div class="row">
+	<div class="col-md-4 m-auto">
+		<form method="POST" enctype="multipart/form-data" class="m-auto">
+			{% csrf_token %} {{ form }}
+			<input type="submit" value="Upload" class="m-auto btn btn-dark" />
+		</form>
+	</div>
+</div>
 
-<form method="POST" enctype="multipart/form-data">
-	{% csrf_token %} {{ form.as_p }}
-	<input type="submit" value="Upload" class="m-auto btn btn-dark" />
-</form>
+<div class="container-fluid mt-4" style="width: 100%">
+	<div class="row">
+		<h4 class="mx-auto mb-4">Input frames ></h4>
+	</div>
+	<div class="row">
+		<div class="col-md">
+			<h5 class="mb-2 text-center">Frame 1</h5>
+			<div class="card">
+				<img src= {% static 'predictions/output-0.png' %} alt="Output 0"
+				class="card-img-top">
+			</div>
+		</div>
+		<div class="col-md">
+			<h5 class="mb-2 text-center">Frame 2</h5>
+			<div class="card">
+				<img src= {% static 'predictions/output-1.png' %} alt="Output 1"
+				class="card-img-top">
+			</div>
+		</div>
+		<div class="col-md">
+			<h5 class="mb-2 text-center">Frame 3</h5>
+			<div class="card">
+				<img src= {% static 'predictions/output-2.png' %} alt="Output 2"
+				class="card-img-top">
+			</div>
+		</div>
+		<div class="col-md">
+			<h5 class="mb-2 text-center">Frame 4</h5>
+			<div class="card">
+				<img src= {% static 'predictions/output-3.png' %} alt="Output 3"
+				class="card-img-top">
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<h4 class="mx-auto my-4">Predicted frames ></h4>
+	</div>
+	<div class="row">
+		<div class="col-md">
+			<h5 class="mb-2 text-center">Frame 1</h5>
+			<div class="card">
+				<img src= {% static 'uploaded/output-0.png' %} alt="Output 0"
+				class="card-img-top">
+			</div>
+		</div>
+		<div class="col-md">
+			<h5 class="mb-2 text-center">Frame 2</h5>
+			<div class="card">
+				<img src= {% static 'uploaded/output-1.png' %} alt="Output 1"
+				class="card-img-top">
+			</div>
+		</div>
+		<div class="col-md">
+			<h5 class="mb-2 text-center">Frame 3</h5>
+			<div class="card">
+				<img src= {% static 'uploaded/output-2.png' %} alt="Output 2"
+				class="card-img-top">
+			</div>
+		</div>
+		<div class="col-md">
+			<h5 class="mb-2 text-center">Frame 4</h5>
+			<div class="card">
+				<img src= {% static 'uploaded/output-3.png' %} alt="Output 3"
+				class="card-img-top">
+			</div>
+		</div>
+	</div>
+</div>
 
-{% comment %}
+{% endblock %} {% comment %}
 <div class="input-group mb-6">
 	<div class="input-group-prepend">
 		<span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
@@ -20,4 +92,4 @@
 		<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
 	</div>
 </div>
-{% endcomment %} {% endblock %}
+{% endcomment %}
